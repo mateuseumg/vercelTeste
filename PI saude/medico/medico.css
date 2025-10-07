@@ -1,0 +1,550 @@
+/* Reset & base */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body, html {
+  height: 100%;
+  background: #e8f5e9; /* verde clarinho suave */
+  color: #2e7d32; /* verde escuro */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.container {
+  display: flex;
+  height: 100vh;
+  overflow: hidden;
+  user-select: none;
+}
+
+/* Sidebar */
+.sidebar {
+  width: 260px;
+  background-color: #66bb6a; /* verde vivo claro */
+  color: #f1f8e9; /* verde quase branco */
+  display: flex;
+  flex-direction: column;
+  padding: 40px 25px;
+  box-shadow: 3px 0 15px rgba(0,0,0,0.12);
+  border-top-right-radius: 20px;
+  border-bottom-right-radius: 20px;
+}
+
+.sidebar h2#doctorName {
+  font-size: 2.4rem;
+  font-weight: 700;
+  margin-bottom: 50px;
+  letter-spacing: 1.2px;
+  text-shadow: 1px 1px 4px rgba(30,80,30,0.4);
+  user-select: none;
+}
+
+.sidebar ul {
+  list-style: none;
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.sidebar ul li {
+  font-size: 1.3rem;
+  font-weight: 600;
+  padding: 14px 18px;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, color 0.3s ease;
+  user-select: none;
+  color: #dcedc8;
+  box-shadow: inset 0 0 0 transparent;
+}
+
+.sidebar ul li.active,
+.sidebar ul li:hover {
+  background-color: #a5d6a7; /* verde mais claro para hover/ativo */
+  color: #1b5e20; /* verde escuro mais forte */
+  box-shadow: inset 3px 3px 6px rgba(0,0,0,0.15);
+}
+
+.sidebar ul li:last-child {
+  margin-top: auto;
+}
+
+#logoutBtn {
+  width: 100%;
+  background-color: #2e7d32;
+  color: #e8f5e9;
+  border: none;
+  border-radius: 16px;
+  padding: 16px 0;
+  font-weight: 700;
+  font-size: 1.2rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  user-select: none;
+  box-shadow: 0 4px 8px rgba(46,125,50,0.5);
+}
+
+#logoutBtn:hover {
+  background-color: #1b5e20;
+  box-shadow: 0 6px 12px rgba(27,94,32,0.7);
+}
+
+/* Main Content */
+.main-content {
+  flex-grow: 1;
+  background-color: #f9fff4;
+  padding: 50px 60px;
+  border-radius: 0 20px 20px 0;
+  overflow-y: auto;
+  box-shadow: inset 0 0 35px rgba(46,125,50,0.07);
+  display: flex;
+  flex-direction: column;
+  user-select: none;
+}
+
+/* Sections */
+.section {
+  display: none;
+  flex-direction: column;
+  flex-grow: 1;
+}
+
+.section.active {
+  display: flex;
+}
+
+/* Headers */
+header h1 {
+  font-size: 3rem;
+  font-weight: 700;
+  margin-bottom: 12px;
+  color: #2e7d32;
+  text-shadow: 1px 1px 4px #a5d6a7;
+}
+
+header p {
+  font-weight: 600;
+  font-size: 1.4rem;
+  margin-bottom: 30px;
+  color: #558b2f;
+}
+
+/* Agenda (consultas) */
+
+.appointments-list {
+  display: flex;
+  flex-direction: column;
+  gap: 26px;
+  max-width: 720px;
+  margin: 0 auto;
+}
+
+.appointment-card {
+  background: #dcedc8;
+  border-radius: 18px;
+  padding: 30px 28px;
+  box-shadow: 0 8px 22px rgba(46,125,50,0.15);
+  display: flex;
+  flex-direction: column;
+  transition: box-shadow 0.3s ease;
+}
+
+.appointment-card:hover {
+  box-shadow: 0 12px 30px rgba(46,125,50,0.3);
+}
+
+.appointment-header {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+
+.patient-name {
+  font-weight: 700;
+  font-size: 1.7rem;
+  color: #33691e;
+}
+
+.appointment-date {
+  font-weight: 600;
+  font-size: 1.3rem;
+  color: #558b2f;
+}
+
+.appointment-details {
+  font-size: 1.15rem;
+  color: #455a16;
+  line-height: 1.6;
+  margin-bottom: 18px;
+}
+
+/* Buttons no card */
+.appointment-card button {
+  background-color: #558b2f;
+  color: white;
+  border: none;
+  padding: 12px 28px;
+  border-radius: 16px;
+  font-weight: 700;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  margin-right: 16px;
+  user-select: none;
+  box-shadow: 0 4px 10px rgba(85,139,47,0.4);
+}
+
+.appointment-card button.cancel-btn {
+  background-color: #d32f2f;
+  box-shadow: 0 4px 10px rgba(211,47,47,0.5);
+}
+
+.appointment-card button.cancel-btn:hover {
+  background-color: #b71c1c;
+  box-shadow: 0 6px 15px rgba(183,28,28,0.7);
+}
+
+.appointment-card button:hover {
+  background-color: #33691e;
+  box-shadow: 0 6px 12px rgba(51,105,30,0.7);
+}
+
+/* Pacientes */
+
+#patients-list-container {
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 0 10px;
+  user-select: none;
+}
+
+#patients-list-container ul {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+  padding-left: 0;
+}
+
+#patients-list-container ul li {
+  background-color: #e6f2d9;
+  border: 2px solid #8bc34a;
+  border-radius: 16px;
+  padding: 24px 30px;
+  box-shadow: 0 6px 20px rgba(107, 142, 35, 0.18);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: #33691e;
+  user-select: none;
+  transition: background-color 0.3s ease;
+}
+
+#patients-list-container ul li:hover {
+  background-color: #c5e1a5;
+}
+
+#patients-list-container ul li span {
+  max-width: 70%;
+  overflow-wrap: break-word;
+}
+
+#patients-list-container ul li button {
+  background-color: #558b2f;
+  padding: 12px 28px;
+  border-radius: 14px;
+  font-weight: 700;
+  color: white;
+  border: none;
+  cursor: pointer;
+  user-select: none;
+  transition: background-color 0.3s ease;
+  box-shadow: 0 4px 12px rgba(85,139,47,0.45);
+}
+
+#patients-list-container ul li button:hover {
+  background-color: #33691e;
+  box-shadow: 0 6px 15px rgba(51,105,30,0.7);
+}
+
+/* Perfil */
+
+#profile-view {
+  max-width: 620px;
+  margin: 0 auto;
+  background-color: #f1f8e9;
+  border-radius: 18px;
+  padding: 36px 40px;
+  box-shadow: 0 8px 26px rgba(46,125,50,0.15);
+  color: #33691e;
+  user-select: none;
+  font-size: 1.3rem;
+  font-weight: 600;
+}
+
+#profile-view p {
+  margin-bottom: 18px;
+}
+
+#profile-view strong {
+  color: #558b2f;
+  font-weight: 700;
+}
+
+#profile-view button {
+  margin-top: 30px;
+  background-color: #558b2f;
+  border: none;
+  color: white;
+  padding: 14px 40px;
+  font-size: 1.1rem;
+  font-weight: 700;
+  border-radius: 20px;
+  cursor: pointer;
+  user-select: none;
+  box-shadow: 0 6px 18px rgba(85,139,47,0.6);
+  transition: background-color 0.3s ease;
+}
+
+#profile-view button:hover {
+  background-color: #33691e;
+  box-shadow: 0 8px 24px rgba(51,105,30,0.85);
+}
+
+/* Editar perfil */
+
+.profile-edit-form {
+  max-width: 620px;
+  margin: 0 auto;
+  background-color: #f1f8e9;
+  border-radius: 20px;
+  padding: 40px 45px;
+  box-shadow: 0 8px 30px rgba(46,125,50,0.15);
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+  font-size: 1.2rem;
+  color: #2e7d32;
+}
+
+.profile-edit-form label {
+  display: flex;
+  flex-direction: column;
+  font-weight: 700;
+  color: #33691e;
+  user-select: none;
+}
+
+.profile-edit-form input {
+  margin-top: 8px;
+  padding: 12px 18px;
+  border-radius: 16px;
+  border: 2px solid #a5d6a7;
+  font-size: 1.15rem;
+  font-weight: 600;
+  color: #33691e;
+  outline-offset: 3px;
+  transition: border-color 0.3s ease;
+}
+
+.profile-edit-form input:focus {
+  border-color: #558b2f;
+  outline: none;
+  box-shadow: 0 0 12px #81c784;
+}
+
+.form-buttons {
+  margin-top: 18px;
+  display: flex;
+  justify-content: flex-end;
+  gap: 20px;
+}
+
+.form-buttons button {
+  padding: 14px 36px;
+  font-size: 1.2rem;
+  font-weight: 700;
+  border-radius: 24px;
+  cursor: pointer;
+  user-select: none;
+  transition: background-color 0.3s ease;
+  border: none;
+  box-shadow: 0 6px 20px rgba(85,139,47,0.4);
+}
+
+.form-buttons button[type="submit"] {
+  background-color: #558b2f;
+  color: white;
+}
+
+.form-buttons button[type="submit"]:hover {
+  background-color: #33691e;
+  box-shadow: 0 8px 26px rgba(51,105,30,0.75);
+}
+
+.form-buttons button#cancelProfileEdit {
+  background-color: #c5e1a5;
+  color: #33691e;
+  box-shadow: 0 4px 12px rgba(165,214,167,0.5);
+}
+
+.form-buttons button#cancelProfileEdit:hover {
+  background-color: #a5d6a7;
+  box-shadow: 0 6px 18px rgba(85,139,47,0.4);
+}
+
+/* Scrollbars */
+.main-content::-webkit-scrollbar {
+  width: 8px;
+}
+
+.main-content::-webkit-scrollbar-thumb {
+  background-color: #a5d6a7;
+  border-radius: 10px;
+}
+
+.main-content::-webkit-scrollbar-track {
+  background-color: #f1f8e9;
+}
+
+/* Responsivo básico */
+
+@media (max-width: 900px) {
+  .container {
+    flex-direction: column;
+  }
+
+  .sidebar {
+    width: 100%;
+    flex-direction: row;
+    padding: 15px 10px;
+    border-radius: 0;
+    box-shadow: 0 4px 12px rgba(46,125,50,0.15);
+    overflow-x: auto;
+  }
+
+  .sidebar h2#doctorName {
+    font-size: 1.6rem;
+    margin-bottom: 0;
+    flex-shrink: 0;
+    padding-right: 20px;
+    line-height: 1.2;
+  }
+
+  .sidebar ul {
+    flex-direction: row;
+    gap: 12px;
+    flex-grow: 1;
+  }
+
+  .sidebar ul li {
+    padding: 8px 14px;
+    font-size: 1rem;
+    border-radius: 12px;
+    white-space: nowrap;
+  }
+
+  #logoutBtn {
+    padding: 10px 14px;
+    font-size: 1rem;
+    border-radius: 12px;
+    box-shadow: none;
+  }
+
+  .main-content {
+    padding: 30px 20px;
+    border-radius: 0;
+  }
+}
+/* Modal Background */
+.modal {
+  display: none; /* escondido por padrão */
+  position: fixed;
+  z-index: 1000; /* fica acima de tudo */
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow-y: auto;
+  background-color: rgba(200, 255, 200, 0.6); /* verde claro transparente */
+  backdrop-filter: blur(5px);
+}
+
+/* Modal box */
+.modal-content {
+  background-color: #f0fff4; /* verde muito claro */
+  margin: 80px auto;
+  padding: 30px 40px;
+  border-radius: 20px;
+  width: 90%;
+  max-width: 600px;
+  box-shadow: 0 12px 40px rgba(46, 125, 50, 0.3);
+  position: relative;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Botão fechar */
+.close-btn {
+  position: absolute;
+  top: 18px;
+  right: 22px;
+  font-size: 2.8rem;
+  font-weight: 700;
+  color: #2e7d32;
+  cursor: pointer;
+  user-select: none;
+  transition: color 0.3s ease;
+}
+
+.close-btn:hover {
+  color: #145214;
+}
+
+/* Título modal */
+#modalPatientName {
+  color: #2e7d32;
+  font-weight: 700;
+  font-size: 2rem;
+  margin-bottom: 26px;
+  text-align: center;
+}
+
+/* Lista consultas */
+#modalConsultationsList {
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+  max-height: 400px;
+  overflow-y: auto;
+  user-select: none;
+}
+
+/* Cada consulta no modal */
+.modal-consultation-card {
+  background-color: #dcedc8;
+  border-radius: 18px;
+  padding: 22px 28px;
+  box-shadow: 0 6px 18px rgba(46, 125, 50, 0.15);
+  display: flex;
+  flex-direction: column;
+  color: #33691e;
+}
+
+.modal-consultation-card h4 {
+  font-weight: 700;
+  font-size: 1.3rem;
+  margin-bottom: 10px;
+}
+
+.modal-consultation-card p {
+  font-size: 1.1rem;
+  line-height: 1.4;
+  margin-bottom: 6px;
+}

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Marcação de Consultas Online</title>
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="manifest" href="../manifest.json">
+<meta name="theme-color" content="#0078d7">
+
+</head>
+<body>
+  <header>
+    <h1>Consultas Online</h1>
+    <p>Agende sua consulta com especialistas confiáveis</p>
+  </header>
+
+  <main>
+    <label for="specialty">Escolha a especialidade:</label>
+    <select id="specialty">
+      <option value="" disabled selected>Selecione uma especialidade</option>
+      <option value="cardiologia">Cardiologia</option>
+      <option value="dermatologia">Dermatologia</option>
+      <option value="pediatria">Pediatria</option>
+      <option value="psicologia">Psicologia</option>
+      <option value="odontologia">Odontologia</option>
+    </select>
+
+    <div class="professional-list" id="professional-list">
+      <!-- Profissionais vão aparecer aqui -->
+    </div>
+  </main>
+
+  <footer>
+    &copy; 2025 Consultas Online - Saúde ao seu alcance
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

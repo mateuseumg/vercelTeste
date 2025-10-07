@@ -1,0 +1,84 @@
+/* Reset básico */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+/* Fundo da página */
+body {
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, #689c6d, #d4ffd7); /* Verde saúde */
+}
+
+/* Container do formulário */
+form {
+  background: #ffffff;
+  padding: 2rem;
+  border-radius: 15px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+  width: 320px;
+  text-align: center;
+}
+
+/* Título */
+h1 {
+  margin-bottom: 20px;
+  color: #3e7d2e; /* Verde mais escuro */
+  font-size: 24px;
+}
+
+/* Labels */
+label {
+  display: block;
+  margin-bottom: 6px;
+  font-weight: bold;
+  color: #388e3c; /* Verde médio */
+  text-align: left;
+}
+
+/* Inputs e Select */
+input, select {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 15px;
+  border: 1px solid #a5d6a7;
+  border-radius: 8px;
+  outline: none;
+  transition: border 0.3s ease, box-shadow 0.3s ease;
+  background-color: #f9fff9;
+}
+
+input:focus, select:focus {
+  border-color: #43a047;
+  box-shadow: 0 0 5px rgba(67, 160, 71, 0.5);
+}
+
+/* Botão */
+button {
+  width: 100%;
+  padding: 12px;
+  border: none;
+  border-radius: 8px;
+  background: #43a047; /* Verde principal */
+  color: white;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background 0.3s ease, transform 0.2s ease;
+}
+
+button:hover {
+  background: #2e7d32;
+  transform: scale(1.05);
+}
+
+/* Pequeno efeito no formulário */
+form:hover {
+  transform: translateY(-3px);
+  transition: transform 0.3s ease;
+}

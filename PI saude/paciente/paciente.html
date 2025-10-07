@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Área do Paciente - Agendamento</title>
+  <link rel="stylesheet" href="paciente.css" />
+  <link rel="manifest" href="../manifest.json">
+<meta name="theme-color" content="#0078d7">
+
+</head>
+<body>
+  <header>
+    <h1>Consultas Online</h1>
+    <p>Agende sua consulta com especialistas confiáveis</p>
+  </header>
+
+  <main>
+    <!-- Boas-vindas -->
+    <section class="welcome-section">
+      <h2>Bem-vindo(a), Maria Oliveira!</h2>
+      <p>Gerencie seus agendamentos, veja seu histórico e acesse suas informações médicas com facilidade.</p>
+    </section>
+
+    <!-- Resumo do Paciente -->
+    <section class="patient-summary">
+      <h3>Seus dados</h3>
+      <ul>
+        <li><strong>Nome:</strong> Maria Oliveira</li>
+        <li><strong>Idade:</strong> 32 anos</li>
+        <li><strong>CPF:</strong> ***.456.***-89</li>
+        <li><strong>Email:</strong> maria.oliveira@email.com</li>
+      </ul>
+      <button class="btn-profile">Ver perfil completo</button>
+    </section>
+
+    <!-- Consultas Futuras -->
+    <section class="upcoming-appointments">
+      <h3>Consultas Agendadas</h3>
+      <ul id="appointments-list">
+        <li>
+          <strong>10/10/2025</strong> - Psicologia com Dra. Carla Ribeiro às 14:00
+          <button class="btn-cancel" onclick="cancelAppointment(this)">Cancelar</button>
+        </li>
+        <li>
+          <strong>20/10/2025</strong> - Dermatologia com Dr. Carlos Mendes às 09:00
+          <button class="btn-cancel" onclick="cancelAppointment(this)">Cancelar</button>
+        </li>
+      </ul>
+    </section>
+
+    <!-- Histórico de Consultas -->
+    <section class="appointment-history">
+      <h3>Histórico de Consultas</h3>
+      <ul>
+        <li><strong>15/09/2025</strong> - Pediatria com Dra. Helena Souza</li>
+        <li><strong>01/09/2025</strong> - Odontologia com Dr. Rafael Gomes</li>
+      </ul>
+    </section>
+
+    <!-- Lembretes -->
+    <section class="reminders">
+      <h3>Lembretes</h3>
+      <p>Chegue com 10 minutos de antecedência à sua consulta e leve um documento com foto.</p>
+    </section>
+
+    <!-- Agendamento -->
+    <section class="appointment-section">
+      <h3>Marcar Nova Consulta</h3>
+      <label for="specialty">Especialidade:</label>
+      <select id="specialty">
+        <option value="" disabled selected>Selecione uma especialidade</option>
+        <option value="cardiologia">Cardiologia</option>
+        <option value="dermatologia">Dermatologia</option>
+        <option value="pediatria">Pediatria</option>
+        <option value="psicologia">Psicologia</option>
+        <option value="odontologia">Odontologia</option>
+      </select>
+
+      <div class="professional-list" id="professional-list">
+        <!-- Cards de profissionais aparecem aqui -->
+      </div>
+    </section>
+
+    <!-- Voltar ao Login -->
+    <section style="text-align: center; margin-top: 40px;">
+      <a href="login/login.html" class="btn-logout">Sair / Voltar para o Login</a>
+    </section>
+  </main>
+
+  <!-- Rodapé -->
+  <footer>
+    &copy; 2025 Consultas Online - Saúde ao seu alcance
+  </footer>
+
+  <!-- Chatbot -->
+  <div class="chatbot-container" id="chatbot-container">
+    <div class="chatbot-header" onclick="toggleChat()">
+      <span>Precisa de ajuda?</span>
+      <button id="toggle-btn">−</button>
+    </div>
+    <div class="chatbot-body" id="chatbot-body">
+      <div class="chatbot-messages" id="chatbot-messages">
+        <div class="bot-message">Olá! Como posso te ajudar com o agendamento? Selecione uma das opções abaixo para continuarmos
+          <select name="optionSchedules" id="" class="bot-message">
+            <option value="marcar"> Marcar</option>
+            <option value="agendar">Agendar</option>
+            <option value="reagendar">Reagendar</option>
+          </select>
+        </div>
+      </div>
+      <div class="chatbot-input-area">
+        <input type="text" id="chatbot-input" placeholder="Digite sua mensagem..." />
+        <button onclick="sendMessage()">Enviar</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Scripts -->
+  <script src="paciente.js"></script>
+  <script>
+    function toggleChat() {
+      const body = document.getElementById('chatbot-body');
+      const btn = document.getElementById('toggle-btn');
+      body.style.display = body.style.display === 'none' ? 'block' : 'none';
+      btn.textContent = body.style.display === 'none' ? '+' : '−';
+    }
+
+    function sendMessage() {
+      const input = document.getElementById('chatbot-input');
+      const messages = document.getElementById('chatbot-messages');
+      const text = input.value.trim();
+
+      if (text !== '') {
+        const userMessage = document.createElement('div');
+        userMessage.className = 'user-message';
+        userMessage.textContent = text;
+        messages.appendChild(userMessage);
+
+        const botMessage = document.createElement('div');
+        botMessage.className = 'bot-message';
+        botMessage.textContent = "Entendi! Em breve um assistente irá te ajudar.";
+        messages.appendChild(botMessage);
+
+        input.value = '';
+        messages.scrollTop = messages.scrollHeight;
+      }
+    }
+
+     function cancelAppointment(button) {
+      const li = button.parentElement;
+      const confirmed = confirm("Tem certeza que deseja cancelar esta consulta?");
+      if (confirmed) {
+        li.remove();
+        alert("Consulta cancelada com sucesso.");
+      }
+    }
+  
+  const faqData = [
+    {
+      question: "horários cardiologia",
+      answer: "Os horários disponíveis para cardiologia são às segundas e quartas-feiras das 8h às 12h."
+    },
+    {
+      question: "cancelar consulta",
+      answer: "Para cancelar uma consulta, clique no botão 'Cancelar' ao lado da consulta agendada."
+    },
+    {
+      question: "reagendar consulta",
+      answer: "Você pode reagendar sua consulta até 24 horas antes do horário marcado."
+    },
+    {
+      question: "onde fica o consultório",
+      answer: "Nosso consultório fica na Rua das Flores, 123, centro da cidade."
+    },
+    {
+      question: "qual o telefone",
+      answer: "Nosso telefone para contato é (00) 0000-0000."
+    }
+    // Você pode adicionar mais perguntas e respostas aqui
+  ];
+
+  function toggleChat() {
+    const body = document.getElementById('chatbot-body');
+    const btn = document.getElementById('toggle-btn');
+    body.style.display = body.style.display === 'none' ? 'block' : 'none';
+    btn.textContent = body.style.display === 'none' ? '+' : '−';
+  }
+
+  function getAnswer(userMessage) {
+    const msg = userMessage.toLowerCase();
+
+    for (const faq of faqData) {
+      if (msg.includes(faq.question)) {
+        return faq.answer;
+      }
+    }
+    return "Desculpe, não entendi. Pode reformular sua pergunta?";
+  }
+
+  function sendMessage() {
+    const input = document.getElementById('chatbot-input');
+    const messages = document.getElementById('chatbot-messages');
+    const text = input.value.trim();
+
+    if (text !== '') {
+      const userMessage = document.createElement('div');
+      userMessage.className = 'user-message';
+      userMessage.textContent = text;
+      messages.appendChild(userMessage);
+
+      const responseText = getAnswer(text);
+
+      const botMessage = document.createElement('div');
+      botMessage.className = 'bot-message';
+      botMessage.textContent = responseText;
+      messages.appendChild(botMessage);
+
+      input.value = '';
+      messages.scrollTop = messages.scrollHeight;
+    }
+  }
+
+  function cancelAppointment(button) {
+    const li = button.parentElement;
+    const confirmed = confirm("Tem certeza que deseja cancelar esta consulta?");
+    if (confirmed) {
+      li.remove();
+      alert("Consulta cancelada com sucesso.");
+    }
+  }
+
+
+  </script>
+
+  
+</body>
+</html>
