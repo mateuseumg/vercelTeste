@@ -1,0 +1,22 @@
+{
+  "version": 2,
+  "builds": [
+    { "src": "index.html", "use": "@vercel/static" },
+    { "src": "login/login.html", "use": "@vercel/static" },
+    { "src": "cadastro/cadastro.html", "use": "@vercel/static" },
+    { "src": "medico/medico.html", "use": "@vercel/static" },
+    { "src": "paciente/paciente.html", "use": "@vercel/static" },
+    { "src": "manifest.json", "use": "@vercel/static" },
+    { "src": "service-worker.js", "use": "@vercel/static" },
+    { "src": "icons/**", "use": "@vercel/static" }
+  ],
+  "routes": [
+    { "src": "^/$", "dest": "/index.html" },
+    { "src": "^/login$", "dest": "/login/login.html" },
+    { "src": "^/cadastro$", "dest": "/cadastro/cadastro.html" },
+    { "src": "^/medico$", "dest": "/medico/medico.html" },
+    { "src": "^/paciente$", "dest": "/paciente/paciente.html" },
+    { "src": "^/consulta$", "dest": "/index.html" },
+    { "src": "/(.*)", "dest": "/$1" }
+  ]
+ }

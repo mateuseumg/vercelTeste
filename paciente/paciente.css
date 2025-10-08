@@ -1,0 +1,170 @@
+/* Responsividade para celular */
+@media (max-width: 900px) {
+  body {
+    padding: 10px;
+  }
+
+  header h1 {
+    font-size: 2rem;
+  }
+
+  header p {
+    font-size: 1rem;
+  }
+
+  main {
+    padding: 15px;
+    max-width: 100%;
+  }
+
+  .welcome-section h2 {
+    font-size: 1.5rem;
+  }
+
+  .welcome-section p {
+    font-size: 1rem;
+  }
+
+  .appointment-section label {
+    font-size: 1.1rem;
+  }
+
+  .appointment-section select {
+    font-size: 1rem;
+    padding: 10px;
+  }
+
+  .professional-list {
+    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+    gap: 15px;
+  }
+
+  .professional-card {
+    padding: 15px;
+  }
+
+  .professional-name {
+    font-size: 1.2rem;
+  }
+
+  .professional-specialty {
+    font-size: 1rem;
+  }
+
+  .btn-appointment {
+    padding: 10px;
+    font-size: 0.9rem;
+  }
+
+  .patient-summary,
+  .upcoming-appointments,
+  .appointment-history,
+  .reminders {
+    padding: 15px;
+  }
+
+  .patient-summary li,
+  .upcoming-appointments li,
+  .appointment-history li {
+    font-size: 0.95rem;
+  }
+
+  .btn-profile {
+    padding: 8px 14px;
+    font-size: 0.95rem;
+  }
+
+  .btn-cancel {
+    padding: 5px 10px;
+    font-size: 0.85rem;
+  }
+
+  .btn-logout {
+    padding: 8px 14px;
+    font-size: 0.95rem;
+  }
+
+  /* Chatbot responsivo */
+  .chatbot-container {
+    width: 260px;
+    bottom: 15px;
+    right: 15px;
+  }
+
+  .chatbot-header {
+    font-size: 0.9rem;
+    padding: 8px 12px;
+  }
+
+  .chatbot-messages {
+    height: 200px;
+    padding: 10px;
+  }
+
+  .chatbot-input-area input {
+    font-size: 0.9rem;
+  }
+
+  .chatbot-input-area button {
+    padding: 8px 10px;
+    font-size: 0.9rem;
+  }
+}
+
+/* Versão ainda menor para celular bem pequeno */
+@media (max-width: 500px) {
+  header h1 {
+    font-size: 1.6rem;
+  }
+
+  header p {
+    font-size: 0.95rem;
+  }
+
+  .welcome-section h2 {
+    font-size: 1.3rem;
+  }
+
+  .appointment-section label {
+    font-size: 1rem;
+  }
+
+  .professional-list {
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    gap: 10px;
+  }
+
+  .professional-name {
+    font-size: 1rem;
+  }
+
+  .professional-specialty {
+    font-size: 0.9rem;
+  }
+
+  .btn-appointment {
+    font-size: 0.85rem;
+    padding: 8px;
+  }
+
+  .patient-summary li,
+  .upcoming-appointments li,
+  .appointment-history li {
+    font-size: 0.9rem;
+  }
+
+  .btn-profile,
+  .btn-cancel,
+  .btn-logout {
+    font-size: 0.85rem;
+    padding: 6px 10px;
+  }
+
+  .chatbot-container {
+    width: 220px;
+  }
+
+  .chatbot-messages {
+    height: 180px;
+  }
+}

@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Painel Médico</title>
+  <link rel="stylesheet" href="medico.css" />
+  <link rel="manifest" href="../manifest.json">
+<meta name="theme-color" content="#0078d7">
+
+</head>
+<body>
+  <div class="container">
+    <nav class="sidebar">
+      <h2 id="doctorName">Dr. Mateus</h2>
+      <ul>
+        <li class="active">Agenda</li>
+        <li>Pacientes</li>
+        <li>Perfil</li>
+        <li><button id="logoutBtn">Sair</button></li>
+      </ul>
+    </nav>
+
+    <main class="main-content">
+      <!-- AGENDA -->
+      <section id="section-agenda" class="section active">
+        <header>
+          <h1>Agenda de Consultas</h1>
+          <p>Veja seus próximos atendimentos</p>
+        </header>
+        <div class="appointments-list" id="appointments-list">
+          <!-- Consultas vão aparecer aqui -->
+        </div>
+      </section>
+
+      <!-- PACIENTES -->
+      <section id="section-pacientes" class="section">
+        <header>
+          <h1>Pacientes</h1>
+          <p>Lista dos seus pacientes e suas consultas</p>
+        </header>
+        <div id="patients-list-container">
+          <!-- Lista de pacientes será carregada aqui -->
+        </div>
+      </section>
+
+      <!-- PERFIL -->
+      <section id="section-profile" class="section">
+        <header>
+          <h1>Perfil</h1>
+        </header>
+        <div id="profile-view">
+          <!-- Dados do perfil carregados aqui -->
+        </div>
+      </section>
+
+      <!-- EDITAR PERFIL -->
+      <section id="section-profile-edit" class="section">
+        <header>
+          <h1>Editar Perfil</h1>
+        </header>
+        <form id="profile-edit-form" class="profile-edit-form">
+          <label>
+            Nome:
+            <input type="text" name="name" required />
+          </label>
+          <label>
+            Email:
+            <input type="email" name="email" required />
+          </label>
+          <label>
+            Telefone:
+            <input type="tel" name="phone" required />
+          </label>
+          <label>
+            CRM:
+            <input type="text" name="crm" required />
+          </label>
+          <label>
+            Especialidade:
+            <input type="text" name="specialty" required />
+          </label>
+
+          <div class="form-buttons">
+            <button type="submit">Salvar</button>
+            <button type="button" id="cancelProfileEdit">Cancelar</button>
+          </div>
+        </form>
+      </section>
+    </main>
+  </div>
+   <!-- Modal consultas pacientes -->
+<div id="consultationsModal" class="modal">
+  <div class="modal-content">
+    <span class="close-btn">&times;</span>
+    <h3 id="modalPatientName">Nome do paciente</h3>
+    <div id="modalConsultationsList">
+      <!-- Consultas vão ser injetadas aqui -->
+    </div>
+  </div>
+</div>
+
+  <script src="medico.js"></script>
+</body>
+</html>
