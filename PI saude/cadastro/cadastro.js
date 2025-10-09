@@ -1,48 +1,31 @@
-/*document.getElementById("cadastroForm").addEventListener("submit", function(event) {
-  event.preventDefault(); // impede o refresh da página
-
-  const tipo = document.getElementById("tipo").value;
-
-  if (tipo === "paciente") {
-    window.location.href = "../login/login.html"; 
-  } else if (tipo === "medico") {
-    window.location.href = "../login/login.html"; 
-  } else {
-    alert("Por favor, selecione um tipo de usuário.");
-  }
-   if (senha !== confirmarSenha) {
-    alert("As senhas não coincidem.");
-    return;
-  }
-});*/
-
 
 document.getElementById("cadastroForm").addEventListener("submit", function(event) {
-  event.preventDefault(); // impede o envio padrão
+  event.preventDefault();
 
-  const nome = document.getElementById("nome").value;
-  const email = document.getElementById("email").value;
-  const telefone = document.getElementById("telefone").value;
+  console.log('submit do cadastro acionado'); // verifica se o evento disparou
+
+  const nome = document.getElementById("nome").value.trim();
+  const email = document.getElementById("email").value.trim();
+  const telefone = document.getElementById("telefone").value.trim();
   const senha = document.getElementById("senha").value;
   const confirmarSenha = document.getElementById("confirmarSenha").value;
   const tipo = document.getElementById("tipo").value;
+
+  if (!tipo) {
+    alert("Por favor, selecione um tipo de usuário.");
+    return;
+  }
 
   if (senha !== confirmarSenha) {
     alert("As senhas não coincidem.");
     return;
   }
 
-  const novoUsuario = {
-    nome,
-    email,
-    telefone,
-    senha,
-    tipo
-  };
-
-  // Armazena no localStorage (apenas para protótipos)
+  const novoUsuario = { nome, email, telefone, senha, tipo };
   localStorage.setItem("usuarioCadastrado", JSON.stringify(novoUsuario));
 
+  alert("Cadastro realizado com sucesso!");
 
-  window.location.href = "../login/login.html";
+
+window.location.href = "/login/login.html";
 });
